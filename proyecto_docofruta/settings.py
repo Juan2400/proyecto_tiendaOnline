@@ -38,6 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'proyecto_docofruta',
+    'app_productos',
+    'app_pedidos',
+    'app_pagos',
+    'app_nosotros',
+    'app_inicio',
+    'app_galeria',
+    'app_carro',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +63,7 @@ ROOT_URLCONF = 'proyecto_docofruta.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],  # solo si usas templates globales 'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
