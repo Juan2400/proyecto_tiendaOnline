@@ -1,0 +1,34 @@
+{% extends "proyecto_docofruta/base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <section id="product-cards">
+        {% regroup productos by categoria as productos_por_categoria %}
+        
+        {% for categoria_grupo in productos_por_categoria %}
+            <div class="container" id="{{ categoria_grupo.grouper.id }}">
+                <h1>{{ categoria_grupo.grouper.nombre_categoria }}</h1>
+                <div class="row">
+                    {% for producto in categoria_grupo.list %}
+                        <div class="content col-md-4 py-3 py-md-0">
+                            <div class="card" data-product-id="{{ producto.id }}">
+                                {% if producto.foto %}
+                                    <img src="{{ producto.foto.url }}" alt="{{ producto.nombre_producto }}">
+                                {% else %}
+                                    <img src="{% static 'image/logo.png' %}" alt="Imagen no disponible">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h3>{{ producto.nombre_producto }}</h3>
+                                    <p>{{ producto.descripcion }}</p>
+                                    <h6>S/{{ producto.precio }}</h6>
+                                    <button class="btn-add-cart">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
