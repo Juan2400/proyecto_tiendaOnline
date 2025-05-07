@@ -587,12 +587,17 @@
 /* NOSOTROS */
 .rounded-image {
     border-radius: 15px;
-    /* Ajusta el valor para cambiar el grado de redondez */
     display: block;
     margin: 0 auto;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
-    /* Ajusta los valores para cambiar la sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.rounded-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.6);
+}
+
 
 /* RESERVAR MESA */
 #contact h1 {

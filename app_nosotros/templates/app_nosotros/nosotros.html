@@ -1,0 +1,53 @@
+{% extends "proyecto_docofruta/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- NOSOTROS -->
+    <div class="container text-center mb-5" id="about">
+        <div class="row mt-5">
+            <div class="col-md-6 py-3">
+                <img src="{% static 'img/NosotrosDecofruta.jpg' %}" alt="Nosotros Decofruta" class="img-fluid rounded-image">
+            </div>
+            <div class="col-md-6 py-3 d-flex flex-column justify-content-center">
+                <h1>¡SOMOS DECOFRUTA!</h1>
+                <hr>
+                <p>
+                    "Desde 2018, hemos llevado detalles frutales y florales a sus hogares, y en 2021 nos convertimos en pioneros al abrir nuestro acogedor establecimiento en Piura. En Decofruta, nos enorgullece ser reconocidos como una marca innovadora que va más allá de lo convencional. Nuestra pasión por la innovación se refleja en cada detalle de nuestros productos, diseñados para sorprender y encantar a todos. Nos esforzamos por crear experiencias únicas y memorables, donde cada regalo se convierte en una expresión de amor, gratitud o celebración. Desde nuestras incomparables fresas con chocolate hasta los más deliciosos churros y otros exquisitos platillos, todo está pensado exclusivamente para ustedes. Nos complace ser una opción atractiva para nuestros clientes, quienes valoran la originalidad, la calidad y el cuidado que ponemos en cada uno de nuestros productos. Al unirte a la familia Decofruta, te invitamos a descubrir un mundo de emociones y sabores, donde cada regalo es una experiencia verdaderamente especial. ¡Bienvenidos a Decofruta, donde la innovación y la excelencia van de la mano!"
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MISIÓN -->
+    <div class="container mb-5" id="mission">
+        <div class="row mt-5">
+            <div class="col-md-6 order-md-2 py-3 text-md-end text-center">
+                <img src="{% static 'img/MisionDecofruta.jpg' %}" alt="Misión Decofruta" class="img-fluid rounded-image">
+            </div>
+            <div class="col-md-6 order-md-1 py-3 d-flex flex-column justify-content-center text-center text-md-start">
+                <h1>¡NUESTRA MISIÓN!</h1>
+                <hr class="my-3">
+                <p>
+                    "Nuestra misión en Decofruta es garantizar la máxima satisfacción en cada uno de nuestros productos y servicios. Nos esforzamos por superar las expectativas de nuestros clientes en cada interacción, brindando experiencias excepcionales que perduren en el tiempo. ¿Cómo lo logramos? Utilizando ingredientes de primera calidad, cuidadosamente seleccionados para ofrecer el mejor sabor y frescura en cada bocado. Además, nos comprometemos a proporcionar la máxima comodidad en nuestro establecimiento, creando un ambiente acogedor y amigable donde todos se sientan bienvenidos. En Decofruta, llevamos siempre la mentalidad de lo mejor para nuestros clientes, buscando continuamente formas de mejorar y enriquecer sus vidas a través de nuestros productos y servicios. ¡Estamos aquí para hacer que cada experiencia sea extraordinaria y memorable!"
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VISIÓN -->
+    <div class="container text-center mb-5" id="vision">
+        <div class="row mt-5">
+            <div class="col-md-6 py-3">
+                <img src="{% static 'img/VisionDecofruta.jpg' %}" alt="Visión Decofruta" class="img-fluid rounded-image">
+            </div>
+            <div class="col-md-6 py-3 d-flex flex-column justify-content-center">
+                <h1>¡NUESTRA VISIÓN!</h1>
+                <hr>
+                <p>
+                    "Nos proyectamos a consolidarnos como una marca líder a largo plazo, aspirando a establecer una cadena de establecimientos. Iniciaremos este camino en la localidad de Piura y sus distritos, expandiendo nuestra innovadora idea de negocio. Nos enfocaremos principalmente en el norte del país, llevando nuestros productos y servicios a más personas y comunidades. ¡Aspiramos a ser el referente de calidad y excelencia en nuestra región y más allá!"
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
