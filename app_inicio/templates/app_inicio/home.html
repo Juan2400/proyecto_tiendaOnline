@@ -3,8 +3,8 @@
 {% load static %}
 
 {% block content %}
-    <!-- Carousel -->
-    <div id="carouselExampleControls" class="carousel slide custom-carousel" data-ride="carousel">
+    <!-- Carrusel -->
+    <div id="carouselExampleControls" class="carousel slide custom-carousel" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="{% static 'img/carrusel1.jpg' %}" alt="First slide">
@@ -28,13 +28,13 @@
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="visually-hidden">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="visually-hidden">Next</span>
         </a>
     </div>
 
@@ -43,22 +43,29 @@
         <div class="row">
             <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
-                    <img src="{% static 'img/box1.jpg' %}" alt="">
-                    <a href="{% url 'Productos' %}#{{1}}" class="btn">Detalles Personalizados</a>
+                    <img src="{% static 'img/box1.jpg' %}" alt="" class="card-img-top">
+                    <div class="card-body text-center">
+                        <a href="{% url 'Productos' %}#{{1}}" class="btn btn-primary">Detalles Personalizados</a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
-                    <img src="{% static 'img/box2.jpg' %}" alt="">
-                    <a href="{% url 'Productos' %}#{{3}}" class="btn">Platos a la Carta</a>
+                    <img src="{% static 'img/box2.jpg' %}" alt="" class="card-img-top">
+                    <div class="card-body text-center">
+                        <a href="{% url 'Productos' %}#{{3}}" class="btn btn-primary">Platos a la Carta</a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
-                    <img src="{% static 'img/box3.jpg' %}" alt="">
-                    <a href="{% url 'Productos' %}" class="btn">Reservar Mesa</a>
+                    <img src="{% static 'img/box3.jpg' %}" alt="" class="card-img-top">
+                    <div class="card-body text-center">
+                        <a href="{% url 'Productos' %}" class="btn btn-primary">Reservar Mesa</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 {% endblock %}

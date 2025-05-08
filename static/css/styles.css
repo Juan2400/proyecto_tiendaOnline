@@ -18,38 +18,38 @@
     font-weight: bold;
 }
 
-.navbar-brand,
-.nav-link {
+.custom-link {
     color: white;
-    /* Cambiar el color del texto a blanco */
 }
 
-.navbar-brand:hover,
-.nav-link:hover {
+.custom-link:hover {
     color: #c89128;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu .dropdown-item:hover {
     background-color: #c89128;
     color: white;
 }
 
+
 /*CARRUSEL*/
-.carousel-inner {
-    width: 100%;
-    height: 88.5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 0;
+.custom-carousel {
+    height: 100vh;
 }
 
-.carousel-item {
+.custom-carousel .carousel-inner,
+.custom-carousel .carousel-item {
+    height: 100%;
+}
+
+.custom-carousel .carousel-item img {
     width: 100%;
     height: 100%;
-    position: relative;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    z-index: 2;
 }
 
 .custom-carousel .carousel-caption {
@@ -57,27 +57,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
     z-index: 2;
     color: white;
     font-weight: bold;
 }
 
-.carousel-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-    z-index: 1;
+.custom-carousel .carousel-caption h3,
+.custom-carousel .carousel-caption p {
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+    padding: 10px;
+    border-radius: 5px;
 }
-/*Para centra la imangen*/
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 /*IMÁGENES CON OPCIONES*/
 #box {
