@@ -44,19 +44,19 @@
             <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
                     <img src="{% static 'img/box1.jpg' %}" alt="">
-                    <a href="clienteProductos.php#detallesPersonalizados" class="btn">Detalles Personalizados</a>
+                    <a href="{% url 'Productos' %}#{{1}}" class="btn">Detalles Personalizados</a>
                 </div>
             </div>
             <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
                     <img src="{% static 'img/box2.jpg' %}" alt="">
-                    <a href="clienteProductos.php#3" class="btn">Platos a la Carta</a>
+                    <a href="{% url 'Productos' %}#{{3}}" class="btn">Platos a la Carta</a>
                 </div>
             </div>
             <div class="col-md-4 py-3 py-md-0">
                 <div class="card">
                     <img src="{% static 'img/box3.jpg' %}" alt="">
-                    <a href="clienteReservarMesa.php" class="btn">Reservar Mesa</a>
+                    <a href="{% url 'Productos' %}" class="btn">Reservar Mesa</a>
                 </div>
             </div>
         </div>

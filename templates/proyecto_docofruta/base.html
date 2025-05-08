@@ -41,10 +41,11 @@
                                 Productos
                             </a>
                             <div class="dropdown-menu">
-                                <a href="{% url 'Productos' %}" class="dropdown-item">Detalles Personalizados</a>
-                                <a href="{% url 'Productos' %}" class="dropdown-item">Cumpleaños</a>
-                                <a href="{% url 'Productos' %}" class="dropdown-item">Platos a la carta</a>
-                                <a href="{% url 'Productos' %}" class="dropdown-item">¡Los más pedidos!</a>
+                                {% for categoria in categorias %}
+                                    <a class="dropdown-item" href="{% url 'Productos' %}#{{ categoria.id }}">
+                                        {{ categoria.nombre_categoria }}
+                                    </a>
+                                {% endfor %}
                             </div>
                         </li>
 
