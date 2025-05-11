@@ -1,0 +1,227 @@
+/* Estilos globales */
+:root {
+    --primary-color: #4caf50;
+    --secondary-color: #ff9800;
+    --accent-color: #e91e63;
+    --text-color: #333;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: var(--primary-color) !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-color) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.btn-registro {
+    background-color: var(--primary-color);
+    color: white !important;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-registro:hover {
+    background-color: #3d8b40;
+    transform: translateY(-2px);
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding-top: 30px;
+}
+
+.footer h5 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--secondary-color);
+}
+
+.footer address {
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+/* Estilos para las secciones de autenticación */
+.auth-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.auth-title {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.auth-form label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.auth-form input {
+    padding: 10px 15px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.auth-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: #3d8b40;
+    transform: translateY(-2px);
+}
+
+.auth-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.auth-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para la página de restablecer contraseña */
+.reset-container {
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.reset-title {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.reset-form .form-group {
+    margin-bottom: 20px;
+}
+
+.reset-form .helptext {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.reset-form ul.errorlist {
+    color: var(--accent-color);
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para mensajes de alerta */
+.alert {
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .auth-container, .reset-container {
+        max-width: 100%;
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .footer {
+        text-align: center;
+    }
+    
+    .footer .col-md-4 {
+        margin-bottom: 30px;
+    }
+}
