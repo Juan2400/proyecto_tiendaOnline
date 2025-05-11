@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decofruta - Mi Perfil</title>
+    <link rel="shortcut icon" type="image" href="{% static 'image/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- icons links -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Aquí puedes incluir tu header o navbar -->
+    
+    <section class="perfil-container">
+        <div class="perfil-card">
+            <h1>Mi Perfil</h1>
+            
+            <div class="perfil-info">
+                <p><strong>Nombre:</strong> {{ user.nombres }} {{ user.apellido_paterno }} {{ user.apellido_materno }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Teléfono:</strong> {{ user.telefono }}</p>
+                
+                {% if perfil.direccion %}
+                    <p><strong>Dirección:</strong> {{ perfil.direccion }}</p>
+                {% else %}
+                    <p><strong>Dirección:</strong> <em>No has agregado una dirección</em></p>
+                {% endif %}
+            </div>
+            
+            <div class="perfil-actions">
+                <a href="{% url 'editar_perfil' %}" class="btn-editar">
+                    <i class='bx bx-edit'></i> Editar Perfil
+                </a>
+                <a href="{% url 'password_reset' %}" class="btn-cambiar-password">
+                    <i class='bx bx-key'></i> Cambiar Contraseña
+                </a>
+                <a href="{% url 'inicio' %}" class="btn-volver">
+                    <i class='bx bx-arrow-back'></i> Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {% if messages %}
+    <div class="mensaje-flotante">
+        {% for message in messages %}
+            <div class="mensaje {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Aquí puedes incluir tu footer -->
+</body>
+</html>

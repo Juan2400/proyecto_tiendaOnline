@@ -1,59 +1,29 @@
-const names = document.getElementById('names')
-const lastNames = document.getElementById('lastNames')
-const email = document.getElementById('email')
-const password = document.getElementById('password')
-const confirmPassword = document.getElementById('confirmPassword')
-const button = document.getElementById('button')
-const registerForm = document.getElementById('registerForm')
-const mensajeFlotante = document.getElementById('mensaje-flotante');
-const textoMensaje = document.getElementById('texto-mensaje');
-const botonAceptar = document.getElementById('boton-aceptar');
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registerForm');
 
-button.addEventListener('click', (e) => {
-    e.preventDefault()
-    let warnings = "";
-    let register = false;
-    /*expresiónes regulares*/
-    let validarNombre = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,}$/;
-    let validarEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    let vaidarTelefono = /^\d+$/;
+    form.addEventListener('submit', function (event) {
+        // Evitamos que se envíe en automático para poder depurar
+        // event.preventDefault();
 
-    if(!validarNombre.test(names.value)){
-        warnings += `El nombre ingresado no es correcto <br>`;
-        register = true;
-    }
+        console.log('Formulario enviado');
 
-    if (!vaidarTelefono.test(phone.value)) {
-        warnings += `El teléfono solo puede contener números <br>`;
-        register = true;
-    }
+        // Verificamos que todos los campos estén completos
+        const inputs = form.querySelectorAll('input');
+        let allFilled = true;
 
-    if(!validarEmail.test(email.value)){
-        warnings += `Correo electrónico no válido <br>`;
-        register = true;
-    }
-    if(password.value.trim().length < 8){
-        warnings += `La contraseña debe tener 8 caracteres como mínimo <br>`;
-        register = true;
-    }
-    if(confirmPassword.value.trim() !== password.value.trim()){
-        warnings += `Las contraseñas no coinciden <br>`;
-        register = true;
-    }
+        inputs.forEach(function (input) {
+            if (input.value.trim() === '' && input.type !== 'hidden') {
+                console.log('Campo vacío:', input.name || input.id);
+                allFilled = false;
+            }
+        });
 
-    if(register){
-        textoMensaje.innerHTML = warnings; // Advertencias en el mensaje flotante
-        mensajeFlotante.style.display = 'block'; // Mostrar el mensaje flotante
-
-    } else {
-        textoMensaje.innerHTML = `Cuenta creada exitosamente<br>`; // Éxito
-        mensajeFlotante.style.display = 'block'; // Mostrar el mensaje flotante
-    }
-})
-
-botonAceptar.addEventListener('click', () => {
-    mensajeFlotante.style.display = 'none'; // Ocultar el mensaje flotante al aceptar
-    if (textoMensaje.innerHTML === `Cuenta creada exitosamente<br>`) {
-        registerForm.submit(); // Enviar el formulario solo si se acepta el mensaje de éxito
-    } 
+        if (allFilled) {
+            console.log('Todos los campos están completos');
+            // Descomenta la siguiente línea cuando estés listo para enviar el formulario
+            // form.submit();
+        } else {
+            console.log('Hay campos vacíos');
+        }
+    });
 });

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'app_inicio',
     'app_galeria',
     'app_carro',
+    'app_usuarios',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +133,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Si estás usando una carpeta global como la que tienes:
-STATICFILES_DIRS = [BASE_DIR / "static"]
+#STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+AUTH_USER_MODEL = 'app_usuarios.CustomUser'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

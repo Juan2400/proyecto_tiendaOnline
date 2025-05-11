@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decofruta - Acceso</title>
+    <link rel="shortcut icon" type="image" href="{% static 'image/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
+    <!-- icons links -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'Home' %}"><i class='bx bx-x-circle'></i></a>
+        <h1 class="title">Acceso</h1>
+
+        {% if form.non_field_errors %}
+            <div class="error-message">
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <label>
+            <i class='bx bx-envelope'></i>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error-message">{{ form.username.errors }}</div>
+            {% endif %}
+        </label>
+
+        <label>
+            <i class='bx bx-key'></i>
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div class="error-message">{{ form.password.errors }}</div>
+            {% endif %}
+        </label>
+
+        <a href="{% url 'password_reset' %}" class="link">¿Olvidaste tu contraseña?</a>
+        <a href="{% url 'registro' %}" class="link">Crea una cuenta</a>
+
+        <button type="submit" id="button">Acceder</button>
+    </form>
+
+    {% if messages %}
+    <div class="mensaje-flotante">
+        {% for message in messages %}
+            <div class="mensaje {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+</body>
+</html>

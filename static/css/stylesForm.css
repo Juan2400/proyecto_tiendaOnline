@@ -10,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(245, 159, 159, 0.1)), url(./image/backgroundFrut.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(245,159,159,0.1)), url("../img/backgroundFrut.jpg");
 }
 
 form {

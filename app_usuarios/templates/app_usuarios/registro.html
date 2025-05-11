@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decofruta - Registro</title>
+    <link rel="shortcut icon" type="image" href="{% static 'image/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
+    <!-- icons links -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <form action="{% url 'registro' %}" method="POST" id="registerForm">
+        {% csrf_token %}
+        <a href="{% url 'Home' %}"><i class='bx bx-x-circle'></i></a>
+        <h1 class="title">Regístrate</h1>
+
+        {% if form.non_field_errors %}
+            <div class="error-message">
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <label>
+            <i class='bx bx-user'></i>
+            {{ form.nombres }}
+            {% if form.nombres.errors %}
+                <div class="error-message">{{ form.nombres.errors }}</div>
+            {% endif %}
+        </label>
+
+        <label>
+            <i class='bx bx-user'></i>
+            {{ form.apellido_paterno }}
+            {% if form.apellido_paterno.errors %}
+                <div class="error-message">{{ form.apellido_paterno.errors }}</div>
+            {% endif %}
+        </label>
+
+        <label>
+            <i class='bx bx-user'></i>
+            {{ form.apellido_materno }}
+            {% if form.apellido_materno.errors %}
+                <div class="error-message">{{ form.apellido_materno.errors }}</div>
+            {% endif %}
+        </label>
+
+        <label>
+            <i class='bx bx-phone'></i>
+            {{ form.telefono }}
+            {% if form.telefono.errors %}
+                <div class="error-message">{{ form.telefono.errors }}</div>
+            {% endif %}
+        </label>
+
+        <label>
+            <i class='bx bx-envelope'></i>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="error-message">{{ form.email.errors }}</div>
+            {% endif %}
+        </label>
+
+        <label>
+            <i class='bx bx-key'></i>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <div class="error-message">{{ form.password1.errors }}</div>
+            {% endif %}
+        </label>
+
+        <label>
+            <i class='bx bx-check'></i>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <div class="error-message">{{ form.password2.errors }}</div>
+            {% endif %}
+        </label>
+
+        <button type="submit" id="button">Registrarme</button>
+        <a href="{% url 'login' %}" class="link">¿Ya tienes una cuenta? Inicia sesión</a>
+    </form>
+
+    {% if messages %}
+    <div class="mensaje-flotante">
+        {% for message in messages %}
+            <div class="mensaje {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <script src="{% static 'js/scriptRegister.js' %}"></script>
+</body>
+</html>
