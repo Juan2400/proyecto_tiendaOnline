@@ -1,15 +1,10 @@
+
+{% extends "proyecto_docofruta/formulario.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decofruta - Registro</title>
-    <link rel="shortcut icon" type="image" href="{% static 'image/logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
-    <!-- icons links -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-</head>
+
+{% block content %}
+
 <body>
 
     <form action="{% url 'registro' %}" method="POST" id="registerForm">
@@ -97,4 +92,5 @@
 
     <script src="{% static 'js/scriptRegister.js' %}"></script>
 </body>
-</html>
+
+{% endblock %}

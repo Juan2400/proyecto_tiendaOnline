@@ -69,6 +69,8 @@
                 <div class="icons">
                     {% if user.is_authenticated %}
                         <span style="color: white; margin-right: 10px;">Hola {{ user.nombres }}</span>
+                         <!-- Contenido agregar  -->
+                        <a href="{% url 'perfil' %}"><i class='bx bx-user-circle'></i></a>
                         <a href="{% url 'logout' %}"><i class='bx bx-log-out-circle'></i></a>
                     {% else %}
                         <a href="{% url 'registro' %}"><i class='bx bxs-user-plus'></i></a>

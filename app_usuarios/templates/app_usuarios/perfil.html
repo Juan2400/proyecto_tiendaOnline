@@ -1,18 +1,9 @@
+{% extends "proyecto_docofruta/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decofruta - Mi Perfil</title>
-    <link rel="shortcut icon" type="image" href="{% static 'image/logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <!-- icons links -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
-    <!-- Aquí puedes incluir tu header o navbar -->
-    
+
+{% block content %}
+
     <section class="perfil-container">
         <div class="perfil-card">
             <h1>Mi Perfil</h1>
@@ -36,7 +27,7 @@
                 <a href="{% url 'password_reset' %}" class="btn-cambiar-password">
                     <i class='bx bx-key'></i> Cambiar Contraseña
                 </a>
-                <a href="{% url 'inicio' %}" class="btn-volver">
+                <a href="{% url 'Home' %}" class="btn-volver">
                     <i class='bx bx-arrow-back'></i> Volver al Inicio
                 </a>
             </div>
@@ -53,6 +44,4 @@
     </div>
     {% endif %}
 
-    <!-- Aquí puedes incluir tu footer -->
-</body>
-</html>
+{% endblock %}
