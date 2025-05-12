@@ -38,7 +38,7 @@ class CustomAuthenticationForm(AuthenticationForm):
         widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña', 'id': 'password'})
     )
 
-
+#Crear el formulario para editar la dirección
 class PerfilForm(forms.ModelForm):
     direccion = forms.CharField(
         widget=forms.Textarea(attrs={'placeholder': 'Ingrese su dirección', 'id': 'direccion', 'rows': 3})

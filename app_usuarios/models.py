@@ -1,5 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models
+from django.db import models
+from django.conf import settings
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, nombres, apellido_paterno, apellido_materno, telefono, password=None):
@@ -42,9 +44,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-from django.db import models
-from django.conf import settings
 
+# # Profile model for the user (Mejorar esto por que debe ingresar ciudad, codiog postal, direcion,e)
 class PerfilCliente(models.Model):
     usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     direccion = models.TextField(blank=True, null=True)

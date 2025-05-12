@@ -6,12 +6,15 @@ from django.contrib.auth.models import Group
 from .forms import ClienteRegistroForm, CustomAuthenticationForm, PerfilForm
 from .models import PerfilCliente
 
+from django.core.mail import send_mail
+from django.http import HttpResponse
+
 def registrar_cliente(request):
     if request.method == 'POST':
         form = ClienteRegistroForm(request.POST)
         if form.is_valid():
             user = form.save()
-            
+
             # Asignar al grupo de clientes
             try:
                 grupo_cliente = Group.objects.get(name='cliente')
@@ -20,7 +23,7 @@ def registrar_cliente(request):
                 # Crear el grupo si no existe
                 grupo_cliente = Group.objects.create(name='cliente')
                 user.groups.add(grupo_cliente)
-            
+
             # Autenticar y hacer login
             email = form.cleaned_data.get('email')
             password = form.cleaned_data.get('password1')
@@ -31,7 +34,7 @@ def registrar_cliente(request):
                 return redirect('Home')  # Redirigir a la página principal
     else:
         form = ClienteRegistroForm()
-    
+
     return render(request, 'app_usuarios/registro.html', {'form': form})
 
 def login_view(request):
@@ -49,7 +52,7 @@ def login_view(request):
                 messages.error(request, "Usuario o contraseña incorrectos.")
     else:
         form = CustomAuthenticationForm()
-    
+
     return render(request, 'app_usuarios/login.html', {'form': form})
 
 def logout_view(request):
@@ -64,7 +67,7 @@ def perfil(request):
     except PerfilCliente.DoesNotExist:
         # Crear perfil si no existe
         perfil_cliente = PerfilCliente.objects.create(usuario=request.user)
-    
+
     return render(request, 'app_usuarios/perfil.html', {'perfil': perfil_cliente})
 
 @login_required
@@ -73,7 +76,7 @@ def editar_perfil(request):
         perfil_cliente = request.user.perfilcliente
     except PerfilCliente.DoesNotExist:
         perfil_cliente = PerfilCliente.objects.create(usuario=request.user)
-    
+
     if request.method == 'POST':
         form = PerfilForm(request.POST, instance=perfil_cliente)
         if form.is_valid():
@@ -82,5 +85,18 @@ def editar_perfil(request):
             return redirect('perfil')
     else:
         form = PerfilForm(instance=perfil_cliente)
-    
+
     return render(request, 'app_usuarios/editar_perfil.html', {'form': form})
+
+def test_email(request):
+    try:
+        send_mail(
+            'Asunto de prueba',
+            'Este es un mensaje de prueba.',
+            'telocuentohaora@gmail.com',  # De
+            ['daliko7477@bamsrad.com'],  # Para
+            fail_silently=False,
+        )
+        return HttpResponse("Correo enviado correctamente")
+    except Exception as e:
+        return HttpResponse(f"Error al enviar correo: {str(e)}")
