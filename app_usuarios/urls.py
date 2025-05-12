@@ -9,7 +9,7 @@ urlpatterns = [
     path('perfil/', views.perfil, name='perfil'),
     path('perfil/editar/', views.editar_perfil, name='editar_perfil'),
 
-    # Rutas para restablecimiento de contraseña (Falta solucionar el problema de envio de correo)
+    # Rutas para restablecimiento de contraseña 
     path('password-reset/', 
          auth_views.PasswordResetView.as_view(
              template_name='app_usuarios/password_reset.html',
