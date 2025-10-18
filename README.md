@@ -21,7 +21,7 @@ Este es un proyecto en Django para una tienda online de productos comestibles pe
 ## Instalación
 
 ```bash
-git clone https://github.com/Juan2400/proyecto_decofruta-.git
+git clone https://github.com/Juan2400/proyecto_tiendaOnline-.git
 cd mi_proyecto
 python -m venv venv
 source venv/bin/activate  # En Windows: venv\Scripts\activate
